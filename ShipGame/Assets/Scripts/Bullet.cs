@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //public GameObject explosionEffect;
-    //public float destroyTime = 2f;
-    public float bulletSpeed = 20f;
-
-    /*void Start()
-    {
-        Destroy(gameObject, destroyTime);
-    }*/
+    public GameObject explosionEffect;
+    public float bulletSpeed = 5f;
 
     void Update()
     {
@@ -21,9 +15,21 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //GameObject effect = Instantiate(explosionEffect, transform.position, Quaternion.identity);
-        //Destroy(effect, 5f);
+        GameObject effect = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 0.25f);
         Destroy(gameObject);
+        switch(collision.gameObject.tag)
+        {
+            case "Wall":
+            Destroy(gameObject);
+            Debug.Log("hits wall");
+            break;
+
+            case "Enemy":
+            Destroy(gameObject);
+            Debug.Log("hits enemy");
+            break;
+        }
     }
 
 }

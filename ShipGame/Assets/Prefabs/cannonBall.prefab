@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7901745743327940051}
   - component: {fileID: 7901745743327940048}
   - component: {fileID: 7901745743327940049}
+  - component: {fileID: 8203776326401770868}
   m_Layer: 0
   m_Name: cannonBall
   m_TagString: Bullet
@@ -114,4 +115,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276c3e7606892504b8b95edfdeb78a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
+  explosionEffect: {fileID: 8248606585538807821, guid: 5d0115842b9b6c940a2f43b233379921, type: 3}
+  bulletSpeed: 5
+--- !u!50 &8203776326401770868
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901745743327940054}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
