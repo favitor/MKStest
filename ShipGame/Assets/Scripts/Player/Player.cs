@@ -50,10 +50,12 @@ public class Player : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            GameObject bullet = Instantiate(bulletPrefab, spawnFrontal.position, spawnFrontal.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(spawnFrontal.up * bulletSpeed, ForceMode2D.Impulse);
+            //GameObject bullet = Instantiate(bulletPrefab, spawnFrontal.position, spawnFrontal.rotation);
+            //Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            //rb.AddForce(spawnFrontal.up * bulletSpeed, ForceMode2D.Impulse);
+            //transform.Translate(Vector3.right * bulletSpeed * Time.deltaTime);
             Debug.Log("FrontalShoot");
+            Instantiate(bulletPrefab, spawnFrontal.position, transform.rotation);
         };
 
     }
