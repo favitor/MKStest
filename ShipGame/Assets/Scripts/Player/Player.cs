@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
-    public Transform spawnFrontal;
+    public Transform spawnFrontal, spawnSide, spawnSide2, spawnSide3;
     public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
 
@@ -62,6 +62,16 @@ public class Player : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire2"))
         {
+            GameObject bullet = Instantiate(bulletPrefab, spawnSide.position, spawnSide.rotation);
+            GameObject bullet2 = Instantiate(bulletPrefab, spawnSide2.position, spawnSide2.rotation);
+            GameObject bullet3 = Instantiate(bulletPrefab, spawnSide3.position, spawnSide3.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
+            Rigidbody2D rb3 = bullet3.GetComponent<Rigidbody2D>();
+            rb.AddForce(-spawnSide.right * bulletSpeed, ForceMode2D.Impulse);
+            rb2.AddForce(-spawnSide2.right * bulletSpeed, ForceMode2D.Impulse);
+            rb3.AddForce(-spawnSide3.right * bulletSpeed, ForceMode2D.Impulse);
+
             Debug.Log("SideShoot");
         };
 
