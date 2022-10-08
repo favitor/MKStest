@@ -27,12 +27,20 @@ public class Chaser : MonoBehaviour
 
     private void FixedUpdate()
     {
-        moveEnemy(movement);
+        moveChaser(movement);
     
     }
 
-    void moveEnemy(Vector2 direction)
+    void moveChaser(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
+    }
+
+    void OnCollisonEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Touch Player");
+        }
     }
 }

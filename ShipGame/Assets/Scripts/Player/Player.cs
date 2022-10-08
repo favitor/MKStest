@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, spawnFrontal.position, spawnFrontal.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(spawnFrontal.up * bulletSpeed, ForceMode2D.Impulse);
-            Debug.Log("FrontalShoot");
         };
 
     }
@@ -71,8 +70,6 @@ public class Player : MonoBehaviour
             rb.AddForce(-spawnSide.right * bulletSpeed, ForceMode2D.Impulse);
             rb2.AddForce(-spawnSide2.right * bulletSpeed, ForceMode2D.Impulse);
             rb3.AddForce(-spawnSide3.right * bulletSpeed, ForceMode2D.Impulse);
-
-            Debug.Log("SideShoot");
         };
 
     }

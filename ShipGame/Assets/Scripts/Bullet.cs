@@ -22,21 +22,14 @@ public class Bullet : MonoBehaviour
         {
             case "Wall":
             Destroy(gameObject);
-            Debug.Log("hits wall");
             break;
 
             case "Enemy":
             Destroy(gameObject);
-            Debug.Log("hits enemy");
             collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent);
             enemyComponent.TakeDamage(1);
             break;
         }
-        /*if(collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
-        {
-            enemyComponent.TakeDamage(1);
-
-        }*/
     }
 
 }

@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public HealthBar healthBar;
+    public int enemyMaxHealth;
     public int enemyHealth;
+
     protected SpriteRenderer sprite;
+    public GameObject deathEffect;
 
     void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        
+        sprite = GetComponent<SpriteRenderer>();        
     }
 
-    void Update()
+    void Start()
     {
+        healthBar.SetHealth(enemyHealth, enemyMaxHealth);
+        healthBar.Slider.value = enemyMaxHealth;
         
     }
 
     public void TakeDamage(int damage)
     {
         enemyHealth -=damage;
+        healthBar.SetHealth(enemyHealth, enemyMaxHealth);
+
         if(enemyHealth <=0)
         {
-            Debug.Log("Enemy Died");
             Destroy(gameObject);
+            UIManager.scoreValue++;
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.25f);
         }
         else
         {
