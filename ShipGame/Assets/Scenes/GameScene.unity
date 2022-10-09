@@ -334,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelMenu: {fileID: 0}
   panelOptions: {fileID: 0}
+  panelGameOver: {fileID: 1297423256}
 --- !u!4 &220057070
 Transform:
   m_ObjectHideFlags: 0
@@ -541,7 +542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &349544149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,7 +915,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.933, y: 0}
   m_SizeDelta: {x: 19.8662, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1871,8 +1872,9 @@ MonoBehaviour:
   deadSprite: {fileID: 21300000, guid: 9a1096b78912812419fada82b08a7889, type: 3}
   healthBar: {fileID: 1726033663}
   deathEffect: {fileID: 2516534557160097626, guid: 6e54d36a351f8574a8210c7ded1f206c, type: 3}
-  playerHealth: 15
+  playerHealth: 3
   playerMaxHealth: 15
+  other: {fileID: 220057069}
 --- !u!1 &1171636121
 GameObject:
   m_ObjectHideFlags: 0

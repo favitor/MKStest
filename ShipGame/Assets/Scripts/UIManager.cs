@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI score;
 
 
+    void Start()
+    {
+        scoreValue = 0;
+    }
     void Update()
     {
         score.text = "Score: " + scoreValue;

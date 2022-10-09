@@ -33,9 +33,9 @@ public class Enemy : MonoBehaviour
         {
             sprite.sprite = deadSprite;
             Destroy(gameObject, 0.5f);
-            UIManager.scoreValue++;
             GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.25f);
+            UIManager.scoreValue++;
         }
 
         if(enemyHealth == 3)

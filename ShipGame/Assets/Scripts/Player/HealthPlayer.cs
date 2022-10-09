@@ -10,13 +10,13 @@ public class HealthPlayer : MonoBehaviour
     public GameObject deathEffect;
     public int playerHealth;
     public int playerMaxHealth;
+    public GameController other;
     // Start is called before the first frame update
     void Start()
     {
         healthBar.SetHealth(playerHealth, playerMaxHealth);
         healthBar.Slider.value = playerMaxHealth;
-        sprite = GetComponent<SpriteRenderer>();
-        
+        sprite = GetComponent<SpriteRenderer>();    
     }
 
     // Update is called once per frame
@@ -33,10 +33,12 @@ public class HealthPlayer : MonoBehaviour
         if(playerHealth <=0)
         {
             sprite.sprite = deadSprite;
-            //Destroy(gameObject, 2f);
-            UIManager.scoreValue++;
+            //UIManager.scoreValue++;
             GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.25f);
+
+            //Call GameOver Funtion
+            other.GameOver();
         }
         
         if(playerHealth == 10)
