@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chaser : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Rigidbody2D rb;
     private Vector2 movement;
     public float speed = 2f;
@@ -13,6 +13,7 @@ public class Chaser : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
         
     }
 

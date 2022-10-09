@@ -9,11 +9,6 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         LookAtMouse();
@@ -72,6 +67,14 @@ public class Player : MonoBehaviour
             rb3.AddForce(-spawnSide3.right * bulletSpeed, ForceMode2D.Impulse);
         };
 
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Island")
+        {
+            Debug.Log("You are tounching the Island");
+        }
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Rigidbody2D rb;
     private Vector2 movement;
     public float speed = 2f;
@@ -18,6 +18,7 @@ public class Shooter : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         timeBtwShots = startTimeBtwShots;
+        player = GameObject.FindGameObjectWithTag("Player");
         
     }
 
@@ -45,7 +46,6 @@ public class Shooter : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, spawnShoot.position, spawnShoot.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(spawnShoot.up * bulletSpeed, ForceMode2D.Impulse);
-        //transform.Translate(spawnShoot.up * Time.deltaTime * bulletSpeed);
         timeBtwShots = startTimeBtwShots;
 
     }
