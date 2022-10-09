@@ -7,14 +7,15 @@ public class UIManager : MonoBehaviour
 {
     public static int scoreValue = 0;
     public float currentTime = 0f;
-    public float startTime = 90f;
+    public float startTime;
     public TextMeshProUGUI score;
     public TextMeshProUGUI timerText;
-    public GameController other;
+    public MenuController other;
 
 
     void Start()
     {
+        startTime = ButtonController.choosedTime;
         scoreValue = 0;
         currentTime = startTime;
     }

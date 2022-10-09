@@ -45,6 +45,7 @@ public class Shooter : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, spawnShoot.position, spawnShoot.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(spawnShoot.up * bulletSpeed, ForceMode2D.Impulse);
+        //transform.Translate(spawnShoot.up * Time.deltaTime * bulletSpeed);
         timeBtwShots = startTimeBtwShots;
 
     }

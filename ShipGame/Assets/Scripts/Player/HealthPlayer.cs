@@ -10,7 +10,7 @@ public class HealthPlayer : MonoBehaviour
     public GameObject deathEffect;
     public int playerHealth;
     public int playerMaxHealth;
-    public GameController other;
+    public MenuController other;
     // Start is called before the first frame update
     void Start()
     {

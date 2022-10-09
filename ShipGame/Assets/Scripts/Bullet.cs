@@ -6,12 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public GameObject explosionEffect;
     public float bulletSpeed = 5f;
-
-    void Update()
-    {
-        //transform.Translate(Vector3.right * Time.deltaTime * bulletSpeed);
-
-    }
+    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
