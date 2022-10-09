@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * bulletSpeed);
+        //transform.Translate(Vector3.right * Time.deltaTime * bulletSpeed);
 
     }
 
@@ -28,6 +28,12 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent);
             enemyComponent.TakeDamage(1);
+            break;
+
+            case "Player":
+            Destroy(gameObject);
+            collision.gameObject.TryGetComponent<HealthPlayer>(out HealthPlayer playerComponent);
+            playerComponent.TakeDamage(1);
             break;
         }
     }

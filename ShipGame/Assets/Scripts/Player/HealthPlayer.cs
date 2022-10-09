@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthPlayer : MonoBehaviour
 {
+    public Sprite damage1Sprite, damage2Sprite, deadSprite;
     public HealthBar healthBar;
     protected SpriteRenderer sprite;
     public GameObject deathEffect;
@@ -31,10 +32,21 @@ public class HealthPlayer : MonoBehaviour
 
         if(playerHealth <=0)
         {
-            Destroy(gameObject);
+            sprite.sprite = deadSprite;
+            //Destroy(gameObject, 2f);
             UIManager.scoreValue++;
             GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.25f);
+        }
+        
+        if(playerHealth == 10)
+        {
+            sprite.sprite = damage1Sprite;
+        }
+
+        if(playerHealth == 5)
+        {
+            sprite.sprite = damage2Sprite;
         }
         else
         {

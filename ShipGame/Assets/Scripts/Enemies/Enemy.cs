@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Sprite damage1Sprite, damage2Sprite, deadSprite;
     public HealthBar healthBar;
     public int enemyMaxHealth;
     public int enemyHealth;
@@ -30,11 +31,23 @@ public class Enemy : MonoBehaviour
 
         if(enemyHealth <=0)
         {
-            Destroy(gameObject);
+            sprite.sprite = deadSprite;
+            Destroy(gameObject, 0.5f);
             UIManager.scoreValue++;
             GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
             Destroy(effect, 0.25f);
         }
+
+        if(enemyHealth == 3)
+        {
+            sprite.sprite = damage1Sprite;
+        }
+
+        if(enemyHealth == 1)
+        {
+            sprite.sprite = damage2Sprite;
+        }
+
         else
         {
             StartCoroutine(TookDamageCoRoutine());

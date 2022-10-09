@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Chaser : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
     private Rigidbody2D rb;
     private Vector2 movement;
     public float speed = 2f;
+    public GameObject deathEffect;
 
     void Start()
     {
@@ -17,11 +18,10 @@ public class Chaser : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-        direction.Normalize();
-        movement = direction;
+        //Look at Player
+        Vector2 targetPos = player.transform.position;
+        movement = targetPos - (Vector2)transform.position;
+        transform.up = movement;
 
     }
 
@@ -33,14 +33,18 @@ public class Chaser : MonoBehaviour
 
     void moveChaser(Vector2 direction)
     {
-        rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
+        rb.MovePosition((Vector2)transform.position + (movement * speed * Time.deltaTime));
     }
 
-    void OnCollisonEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("Touch Player");
+            GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 0.25f);
+            Destroy(gameObject);
+            collision.gameObject.TryGetComponent<HealthPlayer>(out HealthPlayer playerComponent);
+            playerComponent.TakeDamage(1);
         }
     }
 }
