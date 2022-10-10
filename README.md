@@ -9,7 +9,7 @@ Important thing: You've to set the game session and spawn time in the options me
 
 Controls
 
-W - Move forward
-Mouse - Rotation
-Mouse Left Click - Frontal Shot
-Mouse Right Click - Side Shot
+W - Move forward.
+Mouse - Rotation.
+Mouse Left Click - Frontal Shot.
+Mouse Right Click - Side Shot.
