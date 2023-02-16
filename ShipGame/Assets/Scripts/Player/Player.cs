@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Transform spawnFrontal, spawnSide, spawnSide2, spawnSide3;
     public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
+    public AudioSource singleShoot, sideShoot;
 
     void Update()
     {
@@ -48,7 +49,8 @@ public class Player : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, spawnFrontal.position, spawnFrontal.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(spawnFrontal.up * bulletSpeed, ForceMode2D.Impulse);
-        };
+            singleShoot.Play();
+        }
 
     }
 
@@ -65,6 +67,7 @@ public class Player : MonoBehaviour
             rb.AddForce(-spawnSide.right * bulletSpeed, ForceMode2D.Impulse);
             rb2.AddForce(-spawnSide2.right * bulletSpeed, ForceMode2D.Impulse);
             rb3.AddForce(-spawnSide3.right * bulletSpeed, ForceMode2D.Impulse);
+            sideShoot.Play();
         };
 
     }
