@@ -17,3 +17,6 @@ Mouse Left Click - Frontal Shot.
 
 Mouse Right Click - Side Shot.
 
+
+Play: https://favitor.itch.io/ship-game
+
